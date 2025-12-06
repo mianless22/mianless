@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kartu Maaf Cute — Alessia to Miana</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&family=Sacramento&display=swap" rel="stylesheet">
+
+<style>
+    :root{
+        --pink:#ffd6ea;
+        --lilac:#e9dbff;
+        --blue:#d6f0ff;
+        --mint:#dfffe6;
+        --accent:#ff77a9;
+        --text:#333;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0;}
+
+    body{
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+        font-family:"Poppins";
+        background:linear-gradient(135deg,var(--pink),var(--lilac),var(--blue),var(--mint));
+        background-size:300% 300%;
+        animation:bgAnim 15s infinite ease-in-out;
+        overflow:hidden;
+    }
+
+    @keyframes bgAnim{
+        0%{background-position:0 50%;}
+        50%{background-position:100% 50%;}
+        100%{background-position:0 50%;}
+    }
+
+    /* Floating cute elements */
+    .float{
+        position:fixed;
+        font-size:28px;
+        animation:floatAnim 6s infinite ease-in-out;
+        opacity:0.55;
+    }
+    @keyframes floatAnim{
+        0%{transform:translateY(0);}
+        50%{transform:translateY(-22px);}
+        100%{transform:translateY(0);}
+    }
+
+    .card{
+        width:100%;
+        max-width:850px;
+        background:rgba(255,255,255,0.85);
+        padding:32px;
+        border-radius:26px;
+        box-shadow:0 14px 40px rgba(0,0,0,0.15);
+        backdrop-filter:blur(6px);
+        animation:popIn .8s ease;
+    }
+
+    @keyframes popIn{
+        from{transform:scale(.8); opacity:0;}
+        to{transform:scale(1); opacity:1;}
+    }
+
+    .title{
+        font-family:"Pacifico";
+        font-size:2.4rem;
+        color:var(--accent);
+        text-align:center;
+        display:flex; justify-content:center; gap:6px;
+    }
+
+    .caret{
+        width:2px; height:32px;
+        background:var(--accent);
+        animation:blink 1s steps(1) infinite;
+    }
+    @keyframes blink{50%{opacity:0;}}
+
+    .fromto{
+        text-align:center;
+        margin-top:6px;
+        font-size:1.15rem;
+        color:#666;
+        opacity:0;
+        transform:translateY(10px);
+        animation:fadeIn .8s ease forwards 1s;
+    }
+
+    @keyframes fadeIn{
+        to{opacity:1; transform:translateY(0);}
+    }
+
+    .photo{
+        width:270px; height:170px;
+        margin:20px auto;
+        border-radius:18px;
+        overflow:hidden;
+        border:2px solid rgba(255,255,255,0.7);
+        box-shadow:0 8px 22px rgba(0,0,0,0.12);
+        animation:floatPhoto 3s infinite ease-in-out;
+    }
+    @keyframes floatPhoto{
+        0%{transform:translateY(0);}
+        50%{transform:translateY(-12px);}
+        100%{transform:translateY(0);}
+    }
+    .photo img{
+        width:100%; height:100%; object-fit:cover;
+    }
+
+    .longtext{
+        max-height:36vh;
+        overflow:auto;
+        padding-right:8px;
+    }
+
+    .longtext p{
+        background:rgba(255,255,255,0.6);
+        padding:14px;
+        margin-bottom:12px;
+        border-radius:14px;
+        opacity:0;
+        transform:translateY(18px);
+        animation:slideUp .6s forwards;
+    }
+    .longtext p:nth-child(1){animation-delay:.2s;}
+    .longtext p:nth-child(2){animation-delay:.35s;}
+    .longtext p:nth-child(3){animation-delay:.5s;}
+    .longtext p:nth-child(4){animation-delay:.65s;}
+    .longtext p:nth-child(5){animation-delay:.8s;}
+    .longtext p:nth-child(6){animation-delay:.95s;}
+
+    @keyframes slideUp{
+        to{opacity:1; transform:translateY(0);}
+    }
+
+    .actions{
+        margin-top:16px;
+        display:flex;
+        justify-content:center;
+        gap:12px;
+        position:relative;
+    }
+
+    .btn{
+        padding:14px 26px;
+        border-radius:14px;
+        border:none;
+        cursor:pointer;
+        font-weight:600;
+        font-size:1rem;
+        box-shadow:0 6px 18px rgba(0,0,0,0.1);
+        transition:0.2s;
+    }
+
+    .btn-yes{
+        background:linear-gradient(180deg,var(--accent),#ff5e99);
+        color:white;
+    }
+
+    .btn-no{
+        background:white;
+        color:#666;
+        border:2px solid #eee;
+        position:absolute;
+    }
+
+    .signature{
+        font-family:"Sacramento";
+        font-size:1.5rem;
+        color:var(--accent);
+        text-align:right;
+        margin-top:16px;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- Floating emojis -->
+<div class="float" style="left:10%; top:8%;">💗</div>
+<div class="float" style="right:12%; top:20%; animation-delay:1s;">💖</div>
+<div class="float" style="left:18%; bottom:10%; animation-delay:2s;">✨</div>
+<div class="float" style="right:16%; bottom:14%; animation-delay:3s;">🩷</div>
+
+<div class="card">
+
+    <!-- Typewriter Title -->
+    <h1 class="title">
+        <span id="type"></span><span class="caret"></span>
+    </h1>
+
+    <p class="fromto">From: <b>Alessia</b> to: <b>Miana</b> 💞</p>
+
+    <!-- FOTO DI TARUH DI SINI -->
+    <div class="photo">
+        <img src="https://i.imgur.com/jsP2eCK.jpeg">
+        <!-- GANTI URL FOTO KALIAN DI ATAS -->
+    </div>
+
+    <div class="longtext">
+        <p>Sayang.. aku mau ngomong jujur dari hati aku yang paling dalem. Please baca ini pelan-pelan ya, jangan sambil nahan emosi. Aku cuma pengen kamu tau satu hal yang dari tadi muter terus di kepala aku, I’m really, really sorry.</p>
+        <p>Aku tau banget belakangan ini aku bikin kamu kesel, bikin kamu bt, bikin kamu marah sama aku. Aku ngerti banget kenapa kamu bisa ngerasa begitu. Dan jujur, aku sendiri ngerasa bersalah.. kek “kok aku bisa segegabah itu sih?”
+Aku ga pernah, sama sekali ga pernah, punya niatan buat bikin kamu sedih atau ngerasa ga dihargai.</p>
+        <p>Kadang cara aku ngomong tu salah, kadang aku nanggepin dengan cara yang bikin kamu makin kesal, dan kadang aku ga sadar kalau sikap aku bikin kamu sakit hati. Dan aku ga bakal ngeles, ga bakal nyalahin situasi, ga bakal nyalahin apa pun.
+Aku tau kok, aku salah.
+</p>
+        <p>Sayang, kamu itu penting banget buat aku.
+Kamu tu bukan cuma seseorang yang aku sayang, tapi seseorang yang aku jaga, yang aku pengen bahagiain, yang aku pikirin setiap hari. Tapi ketika aku salah langkah, aku malah jadi alasan kamu marah.. dan itu bikin hati aku ikut hancur.
+</p>
+        <p>aku cuma mau kamu ngerti satu hal, Aku sayang kamu, bener-bener sayang. Aku care banget sama kamu, sampai kadang aku panik sendiri kalau aku bikin kamu down. I never wanted to be the reason you feel hurt, even for a second. Aku lagi belajar, beneran belajar. Belajar buat lebih peka. Belajar buat lebih tenang. Belajar buat ga asal ngomong.
+Dan yang paling penting, belajar buat ngejaga perasaan kamu lebih baik lagi. Bukan buat hari ini doang.. tapi buat seterusnya.
+</p>
+        <p>Aku ga minta kamu langsung senyum sekarang, ga minta kamu langsung baikan detik ini. Aku cuma minta satu hal, dengerin hati aku. Karena setiap kata di sini tuh keluar dari tempat yang paling jujur di diri aku.</p>
+        <p>Aku kangen kamu. Kangen suasana hati kamu yang lembut. Kangen kamu ngomel-ngomel kecil tapi manis. Kangen kamu yang biasanya bikin hari aku lebih ringan.</p>
+        <p>Aku cuma nanya satu hal, sambil berharap kamu jawabnya dengan hati yang udah sedikit lebih adem..
+</p>
+        <p>Km mau kan, maafin aku?
+Please klik tombol maafinnya yaa.. jangan sampe ngga, bcz losing your warmth is the last thing I ever want. 🥺</p>
+    </div>
+
+    <div class="actions">
+        <button class="btn btn-yes" id="yesBtn">Maafin ❤️</button>
+        <button class="btn btn-no" id="noBtn">Gamau Maafin 😭</button>
+    </div>
+
+    <div class="signature">— Al</div>
+
+</div>
+
+<script>
+/* TYPEWRITER */
+let text = "My apologies to my love miana";
+let i = 0;
+function type(){
+    if(i <= text.length){
+        document.getElementById("type").textContent = text.slice(0,i);
+        i++;
+        setTimeout(type,55);
+    }
+}
+type();
+
+/* BUTTON LARI */
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", ()=>{
+    let x = Math.random()*200 - 100;
+    let y = Math.random()*80 - 40;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+/* CONFETTI */
+document.getElementById("yesBtn").onclick = ()=>{
+    for(let i=0; i<25; i++){
+        let c = document.createElement("div");
+        c.innerHTML = ["💖","💗","✨","🩷"][Math.floor(Math.random()*4)];
+        c.style.position="fixed";
+        c.style.left = (Math.random()*100)+"%";
+        c.style.top = "-20px";
+        c.style.fontSize = (Math.random()*24+22)+"px";
+        c.style.animation = "drop 2.2s ease-out forwards";
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),2200);
+    }
+};
+
+let style = document.createElement("style");
+style.innerHTML = `
+@keyframes drop {
+    to { transform: translateY(110vh) rotate(360deg); opacity:0; }
+}`;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>
